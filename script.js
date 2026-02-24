@@ -275,9 +275,55 @@ console.log("Updated Cart:", updatedCart);
 // - Get cart from localStorage
 // - Parse JSON
 // - Use reduce() to calculate total again
-const carty = localStorage.getItem("cart");
-const storedCartTotal = carty.reduce((acc, curr) => {
-    return acc + (curr.price * curr.quantity);
-}, 0); // replace null
+// const carty = localStorage.getItem("cart");
+// const storedCartTotal = carty.reduce((acc, curr) => {
+//     return acc + (curr.price * curr.quantity);
+// }, 0); // replace null
 
-console.log("Stored Cart Total:", storedCartTotal);
+// console.log("Stored Cart Total:", storedCartTotal);
+
+
+// 1️⃣ Add Two Numbers
+const add = (a,b) =>{
+    return a + b;
+}
+
+console.log(add(1,2));
+
+// Get Full Name
+
+const fullName = (first, last) => {
+    return first + " " + last;
+}
+
+console.log(fullName("Aditi", "Singh"));
+
+// Double Numbers
+
+const double = (arr) => {
+    const newarr = [...arr]
+    for(let i = 0; i < arr.length; i++){
+        newarr[i] = arr[i] * 2;
+    }
+    return newarr;
+}
+
+const rr = [2,6,3,8,9];
+console.log(double(rr));  
+console.log(rr)  ;
+
+// Update User Age
+
+const updateAge =(user, age) => {
+    return{
+        ...user,
+        age: age
+    }
+}
+
+const us = {
+    name: "Aditi",
+    age: 18
+}
+
+console.log(updateAge(us, 19));
