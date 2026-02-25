@@ -327,3 +327,15 @@ const us = {
 }
 
 console.log(updateAge(us, 19));
+
+// first class function : can be stored as var and passed as arg in another functions
+
+const greet = (name) => {
+    return `Hello ${name}`;
+}
+
+const sayHello = (greet, name) => {
+    return greet(name);
+}
+
+console.log(sayHello(greet, "Aditi"));
