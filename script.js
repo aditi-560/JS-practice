@@ -339,3 +339,44 @@ const sayHello = (greet, name) => {
 }
 
 console.log(sayHello(greet, "Aditi"));
+
+
+// pure functions:
+
+const calaculateTax = (tax, amt) => {
+    const finalPrice = amt + (amt *tax);
+    return finalPrice;
+}
+
+// convert the follwing to pure
+
+
+function increaseScore(currentScore, points) {
+  return currentScore + points;
+}
+
+function add(x,y){
+    return x+y;
+}
+
+function multiply(x,y){
+    return x*y;
+}
+
+function FOF(a,b,operation){
+    return operation(a,b);
+}
+  // HOF
+function multiple(x){
+    return function(n){
+        return n*x;
+    }
+}
+
+
+// functional Programming
+
+function evenNumber(arr1){
+    const e  = arr1.filter((n) => n%2==0);
+    return e.reduce((acc, curr) => acc+curr, 0);
+}
