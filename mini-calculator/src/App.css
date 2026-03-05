@@ -1,0 +1,46 @@
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+
+.calculator {
+  width: 260px;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.display {
+  background: black;
+  color: white;
+  font-size: 28px;
+  text-align: right;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #555;
+}
