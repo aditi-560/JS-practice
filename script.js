@@ -380,3 +380,18 @@ function evenNumber(arr1){
     const e  = arr1.filter((n) => n%2==0);
     return e.reduce((acc, curr) => acc+curr, 0);
 }
+
+// anonymous Function
+
+let multiply = (a,b) => a*b;
+
+let add = (a,b)=>{
+    return a+b;
+}
+
+//IIFE
+
+(function(){
+    console.log(name);
+})("Jhon");
+
