@@ -1,7 +1,9 @@
-export default function Button({label, onclick}){
+export default function Button({onclick, label}){
+    // console.log("cal");
     return(
-        <button onClick={onclick} className="btn">
-            {label}
-        </button>
-    );
+
+    <button onClick={onclick} className="btn">
+        {label}
+    </button>
+    )
 }
