@@ -4,42 +4,42 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || [])  // most important line
-  const [input, setInput] = useState("")
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+  const [input, setInput] = useState("");
 
-  useEffect(()=>{
-    const storedTasks =  JSON.parse(localStorage.getItem('tasks'));
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
 
     if(storedTasks){
-      setTasks(storedTasks)
+      setTasks(storedTasks);
     }
-  },[])
+  },[]);
+
   useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  },[tasks]);
 
-    localStorage.setItem('tasks', JSON.stringify(tasks))
-  }, [tasks])
+  const handleTasks = () =>{
+    setTasks([...tasks, input]);
+    setInput("");
 
-
-  const handleTask = () => {
-    setTasks([...tasks, input])
-    setInput("")
   }
 
+  return(
+    <div>
+      <h1>
+        Tasks
+      </h1>
 
-  return (
-    <>
-    <h1>Task Tracker</h1>
-    <input type="text" value={input} onChange={(e)=> setInput(e.target.value)} placeholder='Add you task' />
-    <button onClick={handleTask}>Add Task</button>
-    <ul>
-      {tasks.map((task, index) =>(
-         <li key={index}>{task}</li>
-      ))}
-    </ul>
+      <input value={input} onChange={(e) => setInput(e.target.value)}/>
+      <button onClick={handleTasks}>Add task</button>
 
-      
-    </>
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
