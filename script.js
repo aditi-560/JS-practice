@@ -355,11 +355,11 @@ function increaseScore(currentScore, points) {
   return currentScore + points;
 }
 
-function add(x,y){
+function dd(x,y){
     return x+y;
 }
 
-function multiply(x,y){
+function mltiply(x,y){
     return x*y;
 }
 
@@ -385,7 +385,7 @@ function evenNumber(arr1){
 
 let multiply = (a,b) => a*b;
 
-let add = (a,b)=>{
+let a = (a,b)=>{
     return a+b;
 }
 
@@ -395,3 +395,15 @@ let add = (a,b)=>{
     console.log(name);
 })("Jhon");
 
+// callback
+
+function getData(callback){
+    settimeout(() => {
+        console.log("data recived");
+        callback();
+    }, 2000)
+}
+
+getData(() => {
+    console.log("processed data")
+})
