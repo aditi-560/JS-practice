@@ -2,87 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Life Dashboard</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <title>Axios Practice</title>
 </head>
 <body>
 
-  <div class="app">
+  <h1>Mini Posts App</h1>
 
-    <!-- Header -->
-    <header class="header">
-      <h1>Daily Life Dashboard</h1>
-      <p>Track your tasks & mood every day</p>
+  <!-- Button to fetch posts -->
+  <button id="loadPosts">Load Posts</button>
 
-      <p id="text">Hello World</p>
-      <button id="changeBtn" onclick="displayText()">Change Text</button>
+  <!-- Form to add post -->
+  <h2>Add Post</h2>
+  <input type="text" id="title" placeholder="Title" />
+  <input type="text" id="body" placeholder="Body" />
+  <button id="addPost">Add Post</button>
 
-    </header>
+  <!-- Status -->
+  <p id="status"></p>
 
-    <!-- User Section -->
-    <section class="card">
-      <h2>User Info</h2>
-      <input type="text" id="username" placeholder="Enter your name" />
-      <button id="saveUser">Save Name</button>
-      <p id="welcomeMsg"></p>
+  <!-- Posts container -->
+  <ul id="postsList"></ul>
 
+  <!-- Axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-      <form id="myForm">
-        <input type="text" placeholder="Enter something" />
-        <button type="submit">Submit</button>
-      </form>
-
-    </section>
-
-    <!-- Task Section -->
-    <section class="card">
-      <h2>Today's Tasks</h2>
-
-      <div class="task-input">
-        <input type="text" id="taskInput" placeholder="Add a new task..." />
-        <button id="addTaskBtn">Add</button>
-      </div>
-
-      <ul id="taskList">
-        <!-- Tasks will appear here via JS -->
-      </ul>
-
-      <p class="task-summary">
-        Total Tasks: <span id="totalTasks">0</span>
-      </p>
-    </section>
-
-    <!-- Mood Tracker -->
-    <section class="card">
-      <h2>Mood Tracker</h2>
-
-      <input type="number" id="moodInput" min="1" max="10" placeholder="Rate mood (1-10)" />
-      <button id="saveMood">Save Mood</button>
-
-      <p id="moodResult"></p>
-
-
-
-      <ul id="list">
-        <li>Apple</li>
-        <li>Banana</li>
-        <li>Mango</li>
-      </ul>
-
-    </section>
-
-    <section class="card">
-      <h2>API Data</h2>
-      <button id="fetchBtn">Fetch Data</button>
-      <p id="apiData"></p>
-    </section>
-
-  </div>
-
-  <!-- JS -->
+  <!-- JS File -->
   <script src="script.js"></script>
+
 </body>
 </html>
