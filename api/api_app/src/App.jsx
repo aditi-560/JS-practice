@@ -10,6 +10,11 @@ function App() {
 
   const [loading, setLoading] = useState(true);
 
+  const [name, setName] = useState("");
+  const[email, setEmail] = useState("");
+  const[response, setResponse] = useState("");
+
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/")
@@ -23,14 +28,57 @@ function App() {
       })
   }, []);
 
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    try{
+      const res = await axios.post(
+        "http://localhost:3000/", {name, email}
+      );
+      setResponse(res.data);
+
+      setName("");
+      setEmail("");
+
+    }catch(error){
+      console.err(error);
+    }
+  };
   if(loading) return <p>loading....</p>
   if(!weather) return <p> No data available</p>
 
   return (
-    <>
-      <h2>Weather in {weather.location.name}</h2>
-      <p>temp: {weather.current.temp_c}</p>
-    </>
+    <div>
+      <h2>Create User</h2>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      {/* 👇 Display Data */}
+      {response && (
+        <div>
+          <h3>{response.message}</h3>
+          <p>Name: {response.data.name}</p>
+          <p>Email: {response.data.email}</p>
+        </div>
+      )}
+    </div>
+
   )
 }
 
