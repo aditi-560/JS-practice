@@ -23,6 +23,20 @@ app.get('/health', async (req, res) =>{
     }
 });
 
+app.post('/create', async(req, res)=>{
+    try{
+
+        const{name, email}  = req.body;
+        if(!name || !email){
+            res.json("name or email not provided");
+        }
+        res.status(201).json({message: "User Created"})
+    }catch{
+        res.status(500).json({message: "Server error"});
+
+    }
+});
+
 app.listen(8000, () => {
     console.log("server running on 8000");
 })
